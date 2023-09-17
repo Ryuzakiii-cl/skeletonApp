@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -14,7 +15,9 @@ export class Tab1Page {
 
   constructor(
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private navCtrl: NavController
+  
     ) {}
 
 
@@ -25,7 +28,7 @@ export class Tab1Page {
     if (users) {
       usuariosRegistrados = JSON.parse(users);
 
-      // Buscar si las credenciales coinciden con algún usuario registrado
+
       const usuarioEncontrado = usuariosRegistrados.find(
         (usuario) =>
           usuario.username === this.username && usuario.password === this.password
@@ -33,6 +36,7 @@ export class Tab1Page {
 
       if (usuarioEncontrado) {
         this.router.navigate(['/login']);
+        this.navCtrl.navigateForward(['/login', { username: this.username }]);
       } else {
         this.mostrarAlerta('Usuario y/o Contraseña incorrecta');
       }
