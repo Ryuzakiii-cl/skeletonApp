@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertController } from '@ionic/angular';
 
@@ -21,7 +21,8 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private alertController: AlertController
+    private alertController: AlertController,
+
   ) {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.username = params.get('username');
@@ -72,7 +73,7 @@ export class LoginPage implements OnInit {
       message,
       buttons: ['CERRAR'],
     });
-
+    await alert.present();
 }
 
 }//fin clase

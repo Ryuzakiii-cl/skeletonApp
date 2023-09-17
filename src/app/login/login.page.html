@@ -21,7 +21,6 @@
 </div>
 
 <ion-card-content>
-
   <form #miFormulario="ngForm">
     <ion-item [ngClass]="{'slide-animation': animacionActiva}">
       <ion-label >Nombre:</ion-label>
@@ -54,11 +53,9 @@
     <ion-button class="dos" (click)="mostrarDatos()">Mostrar</ion-button>
     <ion-button class="dos" (click)="limpiarCampos()">Limpiar</ion-button>
   </form>
-
 </ion-card-content>
 <br>
 
-<!-- Contenido del login si es necesario -->
 <ion-button expand="full" (click)="logout()">Cerrar Sesión</ion-button>
 
 
