@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { AlertController } from '@ionic/angular';
+/* import { MatDatepicker } from '@angular/material/datepicker'; */
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   username: string | null = null;
+/*   @ViewChild('picker') picker: MatDatepicker<Date>; */
   formData ={
     nombre: '',
     apellido: '',
@@ -55,7 +57,6 @@ export class LoginPage implements OnInit {
       fecha: '',
     };
     setTimeout(() => {        
-      // Desactivar la animación después de limpiar
       this.animacionActiva = false;
     }, 1000);
   }

@@ -48,6 +48,9 @@
     <ion-item>
       <ion-label position="stacked">Fecha de nacimiento:</ion-label>
       <ion-input type="date" name="fecha" [(ngModel)]="formData.fecha"></ion-input>
+<!--       <input matInput [matDatepicker]="picker" name="fecha" [(ngModel)]="formData.fecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> -->
     </ion-item>
 
     <ion-button class="dos" (click)="mostrarDatos()">Mostrar</ion-button>
