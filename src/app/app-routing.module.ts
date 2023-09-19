@@ -11,14 +11,27 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
     path: 'e404',
     loadChildren: () => import('./e404/e404.module').then( m => m.E404PageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  }
+    path: 'tabs/tab1',
+    redirectTo: 'tabs/tab1',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'e404', // Captura todas las rutas desconocidas y las redirige a 'e404'
+    pathMatch: 'full'
+  },
 ];
+
+
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
