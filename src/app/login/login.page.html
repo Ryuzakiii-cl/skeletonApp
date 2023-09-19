@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-segment value="favorites">
-      <ion-segment-button value="favorites">
-        <ion-label>cert</ion-label>
+    <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()">
+      <ion-segment-button value="mis_datos">
+        <ion-label>Mis Datos</ion-label>
       </ion-segment-button>
-      <ion-segment-button >
-        <ion-label>ex laboral</ion-label>
+      <ion-segment-button value="ex_laboral">
+        <ion-label>Exp. Laboral</ion-label>
       </ion-segment-button>
-      <ion-segment-button >
-        <ion-label>mis datos</ion-label>
+      <ion-segment-button value="cert">
+        <ion-label>Certificados</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -24,13 +24,23 @@
   <p>Usuario: {{username}}</p>
 </div>
 
-<div class="subt">
-  <h2>
-    Informacion Adicional
-  </h2>
-</div>
 
-<ion-card-content>
+
+
+<ion-card-content *ngIf="segment === 'cert'">
+
+</ion-card-content>
+
+
+<ion-card-content *ngIf="segment === 'ex_laboral'">
+
+</ion-card-content>
+
+
+<ion-card-content *ngIf="segment === 'mis_datos'">
+  <h1 class="ion-text-center">
+    Informacion Adicional
+  </h1>
   <form #miFormulario="ngForm">
     <ion-item [ngClass]="{'slide-animation': animacionActiva}">
       <ion-label >Nombre:</ion-label>
@@ -66,7 +76,10 @@
     <ion-button class="dos" (click)="mostrarDatos()">Mostrar</ion-button>
     <ion-button class="dos" (click)="limpiarCampos()">Limpiar</ion-button>
   </form>
+
+
 </ion-card-content>
+
 <br>
 
 <ion-button expand="full" (click)="logout()">Cerrar Sesión</ion-button>
@@ -76,3 +89,4 @@
     <p>App desarrollada por Christopher Lhoest</p>
   </ion-toolbar>
 </ion-footer>
+

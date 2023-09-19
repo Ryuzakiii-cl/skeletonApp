@@ -9,6 +9,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  segment: string = 'mis_datos';
   username: string | null = null;
 /*   @ViewChild('picker') picker: MatDatepicker<Date>; */
   formData ={
@@ -32,6 +33,10 @@ export class LoginPage implements OnInit {
 }
 
   ngOnInit() {
+  }
+
+  segmentChanged() {
+
   }
 
   mostrarDatos(){
