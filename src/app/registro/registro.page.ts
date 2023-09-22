@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { AlertController } from "@ionic/angular";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -14,7 +14,7 @@ export class RegistroPage implements OnInit{
 
 
   constructor(
-    private navCtrl: NavController,
+    private router: Router,
     private alertController: AlertController
     ) {};
   
@@ -48,7 +48,7 @@ export class RegistroPage implements OnInit{
   }
 
   toTab1(){
-    this.navCtrl.navigateBack(['./tabs/tab1'])
+    this.router.navigateByUrl('/tabs/tab1');
   }
 
 
